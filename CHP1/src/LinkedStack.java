@@ -1,4 +1,6 @@
-
+/*
+ * 链栈实现
+ */
 public class LinkedStack<Item> {
 	private Node<Item> first;
 	private int len;
@@ -14,7 +16,8 @@ public class LinkedStack<Item> {
 	public boolean isEmpty() {
 		return first == null; // 或len==0
 	}
-
+	
+	//压栈
 	public void push(Item item) {
 		Node<Item> tmp = new Node<>();
 		tmp.data = item;
@@ -23,6 +26,7 @@ public class LinkedStack<Item> {
 		len++;
 	}
 	
+	//出栈
 	public Item pop() {
 		Item tmp = null;
 		if(!isEmpty()) {
@@ -33,7 +37,8 @@ public class LinkedStack<Item> {
 		return tmp;
 		
 	}
-
+	
+	//结点
 	private class Node<Item> {
 		Item data;
 		Node<Item> next;

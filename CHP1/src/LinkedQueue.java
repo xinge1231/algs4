@@ -1,4 +1,6 @@
-
+/*
+ * 链式队列实现
+ */
 public class LinkedQueue<Item> {
 	private Node<Item> first;
 	private Node<Item> last;
@@ -17,6 +19,7 @@ public class LinkedQueue<Item> {
 		return len;
 	}
 	
+	//入队
 	public void enqueue(Item item) {
 		Node<Item> tmp = new Node<>();
 		tmp.data=item;
@@ -30,6 +33,7 @@ public class LinkedQueue<Item> {
 		len++;
 	}
 	
+	//出队
 	public Item dequeue() {
 		Item tmp = first.data;
 		if(len==1) { //队列中只有一个元素时出队的情况
@@ -41,6 +45,8 @@ public class LinkedQueue<Item> {
 		len--;
 		return tmp;
 	}
+	
+	//结点
 	private class Node<Item>{
 		Item data;
 		Node<Item> next;
