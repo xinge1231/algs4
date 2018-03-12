@@ -3,16 +3,16 @@ import edu.princeton.cs.algs4.StdIn;
 public class TestMain {
 
 	public static void main(String[] args) {
-		LinkedStack<String> st1 = new LinkedStack<>();
+		LinkedQueue<String> lq = new LinkedQueue<>();
 		while (!StdIn.isEmpty()) {
 			
 			String item = StdIn.readString();
-			st1.push(item);
+			lq.enqueue(item);
 		
 		}
-		int len = st1.size();
-		for (int i = 0; i < len; i++) {
-			System.out.println(st1.pop());
+		
+		while(!lq.isEmpty()) {
+			System.out.println(lq.dequeue());
 		}
 	}
 
