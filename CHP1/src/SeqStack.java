@@ -1,7 +1,7 @@
 import java.util.Iterator;
 
 /*
- * ×Ô¶¨ÒåÕ»
+ * é¡ºåºæ ˆ
  */
 public class SeqStack<Item> implements Iterable<Item> {
 	private Item[] items;
@@ -21,7 +21,7 @@ public class SeqStack<Item> implements Iterable<Item> {
 		return len == 0;
 	}
 	
-	//µ÷ÕûÕ»ÈİÁ¿
+	//è°ƒæ•´å®¹é‡
 	private void resize(int cap) {
 		Item[] tmp = (Item[]) new Object[cap];
 		for (int i = 0; i < len; i++) {
@@ -32,17 +32,17 @@ public class SeqStack<Item> implements Iterable<Item> {
 
 	public void push(Item item) {
 		if (len == items.length)
-			resize(len * 2); //¶¯Ì¬µ÷ÕûÈİÁ¿
+			resize(len * 2); //åŠ¨æ€è°ƒæ•´å®¹é‡
 		items[len++] = item;
 	}
 
 	public Item pop() {
 		Item tmp = null;
 		if (len > 0 && len <= items.length / 4)
-			resize(items.length / 2); //¶¯Ì¬µ÷ÕûÈİÁ¿
+			resize(items.length / 2); //åŠ¨æ€è°ƒæ•´å®¹é‡
 		if (!isEmpty()) {
 			tmp = items[--len];
-			items[len]=null; //±ÜÃâ¶ÔÏóÓÎÀë
+			items[len]=null; //é˜²æ­¢å¯¹è±¡æ¸¸ç¦»
 		}
 		return tmp;
 	}
@@ -52,7 +52,7 @@ public class SeqStack<Item> implements Iterable<Item> {
 		return new StackIterator();
 	}
 	
-	//µü´úÆ÷ÄÚ²¿Àà
+	//å†…éƒ¨ç±»å®ç°è¿­ä»£å™¨
 	private class StackIterator implements Iterator<Item>{
 		private int i = len;
 		@Override
