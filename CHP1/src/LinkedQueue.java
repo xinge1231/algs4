@@ -1,7 +1,9 @@
+import java.util.Iterator;
+
 /*
  * 链式队列实现
  */
-public class LinkedQueue<Item> {
+public class LinkedQueue<Item> implements Iterable<Item> {
 	private Node<Item> first;
 	private Node<Item> last;
 	private int len;
@@ -50,6 +52,28 @@ public class LinkedQueue<Item> {
 	private class Node<Item>{
 		Item data;
 		Node<Item> next;
+	}
+
+	@Override
+	public Iterator<Item> iterator() {
+		return new QueueIterator();
+	}
+	
+	//队列迭代器
+	private class QueueIterator implements Iterator<Item>{
+		Node<Item> current = first;
+		@Override
+		public boolean hasNext() {
+			return current!=null;
+		}
+
+		@Override
+		public Item next() {
+			Item item = current.data;
+			current=current.next;
+			return item;
+		}
+		
 	}
 
 }
